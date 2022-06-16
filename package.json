@@ -1,0 +1,34 @@
+{
+  "name": "api3-docs",
+  "version": "0.6.0",
+  "description": "API3 Developer Documentation.",
+  "main": "index.js",
+  "repository": "https://github.com/api3dao/api3-docs",
+  "author": "API3 DAO",
+  "license": "MIT",
+  "scripts": {
+    "sync:404": "cp docs/.vuepress/components/Replacement404.vue node_modules/@vuepress/theme-default/layouts/404.vue",
+    "sync:navbar": "cp docs/.vuepress/components/Navbar.vue node_modules/@vuepress/theme-default/components/Navbar.vue",
+    "sync:sidebar": "cp docs/.vuepress/components/Sidebar.vue node_modules/@vuepress/theme-default/components/Sidebar.vue",
+    "sync:searchbox": "cp docs/.vuepress/components/SearchBox.vue node_modules/@vuepress/plugin-search/Searchbox.vue",
+    "docs:dev": "yarn sync:404; yarn sync:navbar; yarn sync:sidebar; yarn sync:searchbox; vuepress dev docs",
+    "docs:build": "yarn sync:404; yarn sync:navbar; yarn sync:sidebar; yarn sync:searchbox; vuepress build docs;",
+    "format": "prettier --write \"./**/*.{js,vue,md,json,yaml}\" --loglevel silent",
+    "format:check": "prettier --check \"./**/*.{js,vue,md,json,yaml}\"",
+    "prepare": "husky install"
+  },
+  "devDependencies": {
+    "@vuepress/plugin-back-to-top": "^1.9.7",
+    "axios": "^0.24.0",
+    "colors": "^1.4.0",
+    "file": "^0.2.2",
+    "husky": "^7.0.4",
+    "jszip": "^3.7.1",
+    "oust": "^1.2.0",
+    "prettier": "^2.5.1",
+    "v-click-outside": "^3.1.2",
+    "vuepress": "^1.9.7",
+    "vuepress-plugin-element-tabs": "^0.2.8",
+    "vuepress-plugin-table-of-contents": "^1.1.7"
+  }
+}

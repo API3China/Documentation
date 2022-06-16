@@ -1,0 +1,345 @@
+
+/* Deprecated
+.suggestions {
+  left: auto !important;
+  right: 0 !important;
+}
+*/
+
+/* There are several cases where the heading text is a long
+   continuous string. These need to break wrap on mobile.
+
+   The same is true for single line code examples however 
+   altering the call <code> does not always work on a mobile device
+   (simulator is ok) if there is more than one code line. These
+   must be fixed inline. <code style="overflow-wrap: break-word;"></code>
+*/
+h1, h2, h3, h4, h5{
+  overflow-wrap: break-word;
+}
+
+/* H5 is used in the OIS specs as a numberic heading. It is hard to 
+   read the flow with so many levels. Indenting level H5 helps. It remains
+   to be seen if this impacts other uses of H5 however which at this time
+  (2022-02-17) do not exist.
+*/
+h5{
+  margin-left:35px;
+}
+
+.h5-indent{
+  margin-left:35px;
+}
+
+
+.collapse-box{
+  border-left:2px solid #7963B2;
+  padding:10px;
+}
+
+.collapse-box-summary{
+  color:#7963B2;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+/* 2-n lines under diagrams. This reduces the space between
+  bulleted lines.
+*/
+.diagram-line{
+  margin-top:-10px;
+  max-width:600px;
+  color:black;
+}
+
+/* Info icons css */
+.infoIcon{
+  position:relative;
+  top:5px;
+  cursor:pointer;
+}
+
+/************************************************/
+/* START Content */
+
+/** Change the left border color of the VuePress tip quotebox to API3c Violet */
+.tip{
+  border-left:solid #7963B2 5px !important;
+}
+
+/* Add permanent scrollbar to prevent top navigation bar shift on short pages */
+html{
+  overflow-y: scroll;
+}
+
+h1{
+  color:#301934 !important;
+}
+
+/** Underline all H2 heading with a slightly darker gray*/
+h2{
+  border-bottom:1px solid gray;
+}
+
+/** Underline inline code that has been hyperlinked **/
+a code{
+  text-decoration:underline;
+}
+
+/* Next and prev links, keep off the TOC. */
+div.page-nav{
+  position:relative;
+  margin-left:0px;
+  max-width:530px;
+}
+
+/* Last update, keep of the TOC. */
+div.last-updated{
+  margin-right:220px;
+  min-width:220px;
+}
+
+/* END Content */
+/************************************************/
+
+
+/************************************************/
+/* START sidebar changes */
+
+/* Moves the top of the sidebar up. Makes mobile look better and moves links closer to navbar on top. */
+aside.sidebar{
+  margin-top:-8px;
+}
+
+/* Default size for all DOCS uner a DIVIDER */
+section.sidebar-group.depth-0 a.sidebar-link{
+  font-size:small;
+}
+
+/* Default size for all DOCS under a GROUP */
+section.sidebar-group.collapsable.is-sub-group.depth-1 a.sidebar-link{
+  font-size:small;
+}
+
+/* DIVIDER */
+section.sidebar-group.depth-0 p.sidebar-heading{
+  color:darkpurple !important;
+}
+
+/* DOC under a DIVIDER */
+section.sidebar-group.depth-0  ul.sidebar-links.sidebar-group-items a.active.sidebar-link{
+  color:black !important;
+  border-left:4px solid #7CE3CB !important;
+  background-color:#7CE3CB;
+}
+
+/* GROUP under a DIVIDER that is collapsable */
+section.sidebar-group.collapsable.is-sub-group.depth-1 p.sidebar-heading{
+  cursor: pointer !important;
+  color:darkpurple !important;
+  opacity: 1;
+  font-size:12pt;
+}
+
+/* GROUP under a DIVIDER that is not collapsable */
+section.sidebar-group.is-sub-group.depth-1 p.sidebar-heading{
+  color:darkpurple !important;
+  opacity: 1;
+  font-size:12pt;
+}
+
+/* DOC under a GROUP that is collapsable */
+section.sidebar-group.collapsable.is-sub-group.depth-1  ul.sidebar-links.sidebar-group-items a.active.sidebar-link{
+  color:black !important;
+  background-color:#7CE3CB;
+  border-left:4px solid #7CE3CB !important;
+  margin-left:-16px;
+  width:400px !important;
+  padding-left:44px;
+  font-size:small !important;
+}
+
+/* DOC under a GROUP that is not collapsable */
+section.sidebar-group.is-sub-group.depth-1  ul.sidebar-links.sidebar-group-items a.active.sidebar-link{
+  color:black !important;
+  background-color:#7CE3CB;
+  border-left:4px solid #7CE3CB !important;
+  margin-left:-16px;
+  width:400px !important;
+  padding-left:44px;
+  font-size:small !important;
+}
+
+.sidebar{
+  border-right:solid 1px lightgrey;
+}
+
+/* END sidbar changes */
+/************************************************/
+
+
+
+/******************************************************/
+/* START NavBar */
+
+.navbar, .search-box, div.links, .nav-item, .site-name{
+  color:white !important;
+  background-color:black !important;
+}
+
+/* Site name at top of landing page */
+span.site-name.can-hide{
+  font-size:large !important;
+  font-weight:normal;
+  margin-left:50px !important;
+}
+
+a.nav-link.external, a.repo-link{
+  font-weight:bold !important;
+  color:white !important;
+}
+
+img.logo{
+  margin-top:3px;
+  width:90px; /* you can use % */
+  height:auto !important;
+}
+
+/*.search-box {
+  order: 1;
+  margin-right: 0;
+  margin-left: 1rem;
+}*/
+
+/* Versions menu ??? is this junk*/
+span.title{
+  color:white;
+  font-weight:bold;
+}
+
+/* Versions menu */
+div.dropdown-wrapper, ul.nav-dropdown, li.dropdown-item a.nav-link.router-link-exact-active.router-link-active{
+  color:black;
+}
+
+/* END NavBar */
+/************************************************/
+
+
+
+/******************************************************/
+/* START Native TOC adjustments */
+
+.table-of-contents{
+    position: fixed;
+    top:110px;
+    right: 5px;
+    font-size:small;
+    color:#50c878;
+    min-width:275px !important;
+    max-width:275px !important;
+    border-bottom:1px lightgrey solid;
+    border-right:1px lightgrey solid;
+    /* http://jsfiddle.net/RyanBrackett/b44Zn/ */
+    overflow-x: hidden; /* Hide horizontal scrollbar */
+    -webkit-overflow-scrolling: touch;
+    height: 75%;
+}
+/* This is a .vuepress/components/TocHeader.vue */
+.toc-label{
+  position: fixed;
+    top:90px;
+    right: 5px;
+    font-size:medium;
+    color:gray;
+    min-width:275px !important;
+    max-width:275px !important;
+    border-bottom:1px solid lightgrey;
+    margin-bottom:40px !important;
+}
+
+
+@media only screen and (max-width: 4000px) {
+    div.theme-default-content.content__default{
+      max-width:67% ;
+      margin-left:70px;
+    }
+}
+@media only screen and (max-width: 1600px) {
+    div.theme-default-content.content__default{
+      /* background-color: pink; */
+      max-width:65%;
+      margin-left:70px;
+    }
+}
+@media only screen and (max-width: 1500px) {
+    div.theme-default-content.content__default{
+      /*background-color: yellow;*/
+      max-width:65%;
+      margin-left:30px;
+    }
+}
+@media only screen and (max-width: 1450px) {
+    div.theme-default-content.content__default{
+      /*  background-color: gray; */
+      max-width:65%;
+      margin-left:10px;
+    }
+}
+@media only screen and (max-width: 1400px) {
+    div.theme-default-content.content__default{
+      /* background-color: lightgrey; */
+      max-width:65%;
+      margin-left:10px;
+    }
+}
+@media only screen and (max-width: 1350px) {
+    div.theme-default-content.content__default{
+      /* background-color: beige; */
+      max-width:65%;
+      margin-left:10px;
+    }
+}
+@media only screen and (max-width: 1300px) {
+    div.theme-default-content.content__default{
+      /* background-color: purple; */
+      max-width:60%;
+      margin-left:10px;
+    }
+
+}
+
+@media only screen and (max-width: 1200px) {
+    .table-of-contents, .toc-label{
+      display:none;
+    }
+    div.theme-default-content.content__default{
+      /* background-color: lightblue; */
+      margin-left:10px;
+      max-width:85%;
+    }
+}
+@media only screen and (max-width: 900px) {
+    .table-of-contents, .toc-label{
+      display:none;
+    }
+    div.theme-default-content.content__default{
+      /*  background-color: lightgreen; */
+      margin-left:10px;
+      max-width:85%;
+    }
+}
+
+/* Mobile */
+@media only screen and (max-width: 500px) {
+    div.theme-default-content.content__default {
+        margin-left:0px;
+        max-width:88% !important;
+    }
+}
+
+/* END Native TOC adjustments */
+/************************************************/
+
+
+
